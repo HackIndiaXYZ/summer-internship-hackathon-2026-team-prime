@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/style.css">
+
+<div class="container">
+
+  <h2>Search Patient</h2>
+
+  <!-- Search Form -->
+  <form action="/patient/search" method="POST">
+    <input name="patientId" placeholder="Enter Patient ID" required>
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Forgot Patient ID Button (link) -->
+  <div style="margin-top: 10px;">
+    <a href="/patient/forgot-patient-id">
+      <button type="button">Forgot Patient ID</button>
+    </a>
+  </div>
+
+</div>

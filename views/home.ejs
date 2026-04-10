@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clinic Chain</title>
+
+
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+   <div id="opening">
+    <img src="/images/logo.png" class="opening-logo">
+</div>
+ 
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo-wrap">
+        <img src="/images/logo.png" class="logo">
+        <span class="brand-name"></span>
+    </div>
+
+    <div class="nav">
+        <a href="#">Home</a>
+        <a href="/about">About us</a>
+        <a href="/auth/register">Sign</a>
+        <a href="/auth/login">Login</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Secure Patient History System</h1>
+
+    <h2 id="quote">
+        Connecting clinics, protecting patient history
+    </h2>
+
+    <a href="/auth/register">
+        <button class="btn">Get Started</button>
+    </a>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+
+    <div class="card">
+        <h3>Secure Records</h3>
+        <p>Patient medical reports stored safely with tamper detection.</p>
+    </div>
+
+    <div class="card">
+        <h3>Doctor Verification</h3>
+        <p>Only licensed doctors can upload and verify reports.</p>
+    </div>
+
+    <div class="card">
+        <h3>QR Access</h3>
+        <p>Scan QR to instantly view patient health history.</p>
+    </div>
+
+</div>
+
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://x.com" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+
+        <a href="https://linkedin.com" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <a href="https://instagram.com" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <p>© Copyright 2026 | All Rights Reserved clinic-chain.com</p>
+
+</footer>
+
+<!-- JS -->
+<script>
+const quotes = [
+"Connecting clinics, protecting patient history",
+"One chain, secure care for every patient"
+];
+
+let index = 0;
+
+setInterval(function(){
+    document.getElementById("quote").innerText = quotes[index];
+    index = (index + 1) % quotes.length;
+},3000);
+</script>
+<script>
+function toggleLang() {
+    const menu = document.getElementById("langMenu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('button')) {
+        document.getElementById("langMenu").style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
+
+<script>
+// hide opening after animation
+setTimeout(()=>{
+    const opening = document.getElementById("opening");
+
+    opening.style.transition = "opacity 1s";
+    opening.style.opacity = 0;
+
+    setTimeout(()=>{
+        opening.style.display = "none";
+        document.body.style.overflow = "auto";
+    },1000);
+
+},2500);
+</script>

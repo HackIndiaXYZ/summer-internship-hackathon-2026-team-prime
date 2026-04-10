@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/style.css">
+
+<div class="container">
+  <h2>Patient History</h2>
+
+  
+  <% records.forEach(function(record){ %>
+    <div style="margin-top:15px;padding:15px;border-radius:12px;background: rgba(255,255,255,0.08);backdrop-filter:blur(10px);">
+      <p><b>Doctor:</b> <%= record.doctor %></p>
+      <p><b>Symptoms:</b> <%= record.symptoms %></p>
+      <p><b>Diagnosis:</b> <%= record.diagnosis %></p>
+      <p><b>Medicines:</b> <%= record.medicines %></p>
+      <p><b>Tests:</b> <%= record.tests %></p>
+
+      <% if(record.file){ %>
+        <p><b>File:</b> 
+          <a href="/record/file/<%= record._id %>" target="_blank">View</a> |
+          <a href="/record/file/<%= record._id %>?download=true" target="_blank">Download</a>
+        </p>
+      <% } %>
+
+      <p><small><b>Date:</b> <%= record.date.toLocaleString() %></small></p>
+    </div>
+  <% }) %>
+</div>

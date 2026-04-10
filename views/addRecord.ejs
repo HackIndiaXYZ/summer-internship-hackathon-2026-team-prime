@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/style.css"><button id="theme-btn" class="theme-toggle-btn"></button>
+
+<div class="container">
+<h2>Add Medical Record</h2>
+
+<form action="/record/add/<%= patientId %>" method="POST" enctype="multipart/form-data">
+  <input name="doctor" placeholder="Doctor Name" required>
+  <textarea name="symptoms" placeholder="Symptoms"></textarea>
+  <textarea name="diagnosis" placeholder="Diagnosis"></textarea>
+  <textarea name="medicines" placeholder="Medicines"></textarea>
+  <textarea name="tests" placeholder="Tests"></textarea>
+  <input type="file" name="file" /> <!-- File input -->
+  <button>Save Record</button>
+</form>
+</div>
+<script>
+ 
+const btn = document.getElementById("theme-btn");
+
+function updateButtonText() {
+  btn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+}
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  updateButtonText();
+});
+
+// Load saved theme on page load
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark-mode');
+}
+updateButtonText();
+</script>

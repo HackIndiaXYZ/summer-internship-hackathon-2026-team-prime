@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Patient</title>
+  <link rel="stylesheet" href="/css/style.css"><button id="theme-btn" class="theme-toggle-btn"></button>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Register Patient</h2>
+
+    <% if (error) { %>
+      <p style="color:red;"><%= error %></p>
+    <% } %>
+
+    <form action="/patient/register" method="POST">
+      <input name="name" placeholder="Full Name" required>
+      <input name="phone" placeholder="Phone Number" required>
+      <input name="aadhar" placeholder="Aadhar Number" required>
+      <input name="dob" type="date" placeholder="Date of Birth" required>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  
+</body>
+</html>
+<script>
+const btn = document.getElementById("theme-btn");
+
+function updateButtonText() {
+  btn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+}
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  updateButtonText();
+});
+
+// Load saved theme on page load
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark-mode');
+}
+updateButtonText();
+</script>

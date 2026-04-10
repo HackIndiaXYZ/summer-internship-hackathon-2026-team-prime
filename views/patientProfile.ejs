@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/css/style.css"><button id="theme-btn" class="theme-toggle-btn"></button>
+
+<div class="container">
+  <h2>Patient Profile</h2>
+
+  <% if (patient) { %>
+    <p><b>Name:</b> <%= patient.name %></p>
+    
+    <p><b>Patient ID:</b> <%= patient.patientId %></p>
+
+    <div style="margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+      <a href="/record/add/<%= patient.patientId %>">
+        <button>Add Record</button>
+      </a>
+
+      <a href="/patient/history/<%= patient.patientId %>">
+        <button>View History</button>
+      </a>
+
+      <a href="/patient/qr/<%= patient.patientId %>">
+        <button>View via QR</button>
+      </a>
+    </div>
+  <% } else { %>
+    <p>Patient data not found.</p>
+  <% } %>
+</div>
+<script>
+ 
+const btn = document.getElementById("theme-btn");
+
+function updateButtonText() {
+  btn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+}
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  updateButtonText();
+});
+
+// Load saved theme on page load
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark-mode');
+}
+updateButtonText();
+</script>

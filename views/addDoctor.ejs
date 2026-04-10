@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/css/style.css"><button id="theme-btn" class="theme-toggle-btn"></button>
+
+<div class="container">
+<h2>Add Verified Doctor</h2>
+
+<form action="/auth/admin/add-doctor" method="POST">
+  <input type="text" name="name" placeholder="Doctor Name" required><br><br>
+  <input type="text" name="licenseNumber" placeholder="License Number" required><br><br>
+  <input type="text" name="state" placeholder="State" required><br><br>
+  <input type="text" name="hospital" placeholder="Hospital" required><br><br>
+
+  <button type="submit">Add Doctor</button>
+</form>
