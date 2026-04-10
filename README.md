@@ -11,7 +11,6 @@ Clinic Chain is a centralized digital health record system that allows patient d
 - 📷 QR-based patient record access
 - 🏥 Multi-clinic data sharing
 - 📁 File upload for medical records
-- 🌐 Multi-language support
 - 📊 Simple dashboard for clinics
 
 ## Tech Stack
